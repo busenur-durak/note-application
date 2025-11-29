@@ -3,13 +3,24 @@
 import { useState } from "react";
 import './globals.css'; // Import the custom CSS
 
+// Define interfaces for API response types
+interface AnalysisResultType {
+  sentiment: string;
+  keywords: string[];
+}
+
+interface CategoryType {
+  label: string;
+  score: number;
+}
+
 export default function Home() {
   const [note, setNote] = useState("");
-  const [analysisResult, setAnalysisResult] = useState(null);
-  const [categories, setCategories] = useState([]);
+  const [analysisResult, setAnalysisResult] = useState<AnalysisResultType | null>(null);
+  const [categories, setCategories] = useState<CategoryType[]>([]);
   const [loadingAnalysis, setLoadingAnalysis] = useState(false);
   const [loadingCategories, setLoadingCategories] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleAnalyzeNote = async () => {
     setLoadingAnalysis(true);
@@ -24,10 +35,11 @@ export default function Home() {
       });
 
       if (!response.ok) {
-        throw new Error(`Error: ${response.status} ${response.statusText}`);
+        const errorData = await response.json();
+        throw new Error(errorData.error || `Error: ${response.status} ${response.statusText}`);
       }
 
-      const data = await response.json();
+      const data: AnalysisResultType = await response.json();
       setAnalysisResult(data);
     } catch (err: any) {
       setError(err.message);
@@ -49,10 +61,11 @@ export default function Home() {
       });
 
       if (!response.ok) {
-        throw new Error(`Error: ${response.status} ${response.statusText}`);
+        const errorData = await response.json();
+        throw new Error(errorData.error || `Error: ${response.status} ${response.statusText}`);
       }
 
-      const data = await response.json();
+      const data: CategoryType[] = await response.json();
       setCategories(data);
     } catch (err: any) {
       setError(err.message);
