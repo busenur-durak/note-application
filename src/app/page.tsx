@@ -84,11 +84,11 @@ export default function Home() {
         <textarea
           className="textarea"
           rows={10}
-                      placeholder={`Paste your notes and let AI analyze and categorize them for you.
+                      placeholder={`Paste your note here.
 
 Example:
 Today I studied machine learning basics.
-I feel confused about clustering algorithms.`}
+I felt confused at first but practice helped.`}
           value={note}
           onChange={(e) => setNote(e.target.value)}
         ></textarea>
