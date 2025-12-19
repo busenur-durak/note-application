@@ -84,7 +84,12 @@ export default function Home() {
         <textarea
           className="textarea"
           rows={10}
-          placeholder="Enter your note here for AI analysis..."
+          placeholder="Paste your notes and let AI analyze and categorize them for you.
+          Example:
+"Today I studied machine learning basics.
+I feel confused about clustering algorithms
+but K-Means started to make sense."
+"
           value={note}
           onChange={(e) => setNote(e.target.value)}
         ></textarea>
