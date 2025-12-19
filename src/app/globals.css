@@ -12,17 +12,17 @@ body {
   align-items: center;
   justify-content: flex-start; /* Align to the top */
   min-height: 100vh;
-  padding: 1rem;
+  padding: .5rem;
 }
 
 .main-content {
-  width: 90%; /* More responsive width */
+  width: 95%; /* More responsive width */
   max-width: 800px; /* Adjust max-width for better readability */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem; /* Reduced gap for smaller screens */
-  padding: 1.5rem; /* Reduced padding */
+  padding: 1rem; /* Reduced padding */
   border-radius: 1rem;
   background-color: #2a2a4a; /* Slightly lighter dark background for content */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);

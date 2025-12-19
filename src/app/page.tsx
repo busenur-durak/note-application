@@ -80,15 +80,15 @@ export default function Home() {
     <div className="container">
       <main className="main-content">
         <h1 className="title">Mneme AI Notes</h1>
+        <p className="description mt-0">Paste your notes and let AI analyze and categorize them for you.</p>
 
         <textarea
           className="textarea"
           rows={10}
-                      placeholder={`Paste your note here.
-
-Example:
-Today I studied machine learning basics.
-I felt confused at first but practice helped.`}
+          placeholder={`Example:
+"Today I studied machine learning basics.
+I feel confused about clustering algorithms
+but K-Means started to make sense."`}
           value={note}
           onChange={(e) => setNote(e.target.value)}
         ></textarea>
@@ -140,5 +140,3 @@ I felt confused at first but practice helped.`}
     </div>
   );
 }
-
-
